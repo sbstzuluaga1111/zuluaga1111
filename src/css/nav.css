@@ -1,0 +1,65 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ajusta según sea necesario */
+}
+
+
+.App {
+  text-align: center;
+}
+
+
+
+.btn {
+    font-size: 17px;
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    position: relative;
+    transition: .5s ease;
+    color: white;
+  }
+  
+  .btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #0666ff;
+    transition: .5s ease;
+    color: white;
+  }
+  
+  .btn:hover {
+    color: white;
+    transition-delay: .5s;
+  }
+  
+  .btn:hover::before {
+    width: 100%;
+    color: white;
+  }
+  
+  .btn.active::after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #0666ff;
+    transition: .4s ease;
+    z-index: -1;
+    color: white;
+  }
+  
+  
+  .btn:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: white;
+  }
+  

@@ -1,22 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import SobreMi from './components/SobreMi';
+import Conocimientos from './components/Conocimientos';
+import Proyectos from './components/Proyectos';
+import MiNavbar from './components/nav';
 
 function App() {
+  const [componenteActivo, setComponenteActivo] = useState('SobreMi');
+
+  const handleButtonClick = (nombreComponente) => {
+    setComponenteActivo(nombreComponente);
+  };
+
   return (
     <div className="App">
+      <MiNavbar onButtonClick={handleButtonClick} />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {componenteActivo === 'SobreMi' && <SobreMi />}
+        {componenteActivo === 'Conocimientos' && <Conocimientos />}
+        {componenteActivo === 'Proyectos' && <Proyectos />}
       </header>
     </div>
   );
